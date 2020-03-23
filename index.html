@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <script>
+     let TotalBill;
+     let TotalTip;
+     let ValueBill = prompt("What's your bill");
+     if (typeof ValueBill !== Number) {
+         alert (" Please enter a number!");
+     }else {
+         return ValueBill;
+     }; 
+     let Rating = prompt("Rate the service out of 10");     
+    if ((typeof Rating !== Number) && (Rating > 10)) {
+         alert (" Please enter a number under 10!");
+     } else if (Rating <= 3) {
+         TotalTip = 0;
+     } else if (Rating >= 4 && Rating <7  ){
+        return  TotalTip = (20/100) * ValueBill;
+    } else (Rating >= 7) {
+         return TotalTip = (40/100) * ValueBill;
+     }; 
+     console.log( `This is your Total Bill £${TotalBill} , with the a value of £${TotalTip} tip included`)
+
+ </script>  
+</body>
+</html>
