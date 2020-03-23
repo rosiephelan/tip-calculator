@@ -7,25 +7,46 @@
 </head>
 <body>
  <script>
-     let TotalBill;
-     let TotalTip;
-     let ValueBill = prompt("What's your bill");
-     if (typeof ValueBill !== Number) {
-         alert (" Please enter a number!");
-     }else {
-         return ValueBill;
-     }; 
-     let Rating = prompt("Rate the service out of 10");     
-    if ((typeof Rating !== Number) && (Rating > 10)) {
-         alert (" Please enter a number under 10!");
-     } else if (Rating <= 3) {
-         TotalTip = 0;
-     } else if (Rating >= 4 && Rating <7  ){
-        return  TotalTip = (20/100) * ValueBill;
-    } else (Rating >= 7) {
-         return TotalTip = (40/100) * ValueBill;
-     }; 
-     console.log( `This is your Total Bill £${TotalBill} , with the a value of £${TotalTip} tip included`)
+     
+    let billAmount;
+    let rating;
+    let tipAmount;
+
+     function getTheBill() {
+        billAmount = prompt('How much was your bill?');
+        if (billAmount !== NaN && billAmount > 0){
+            getRating();
+        } else {
+            alert('Enter a number above zero.');
+            getTheBill();
+        }
+     }
+
+     function getRating() {
+        rating = prompt('Rate your meal out of 10');
+        if (rating !== NaN && rating <= 10 && rating >= 0) {
+            getTotalBill(billAmount,rating);
+        } else {
+            alert('Enter number between 1 and 10.');
+            getRating();
+        }  
+     }
+
+     function getTotalBill(billAmount, rating) {
+         if (rating < 3) {
+             tipAmount = billAmount * 0;
+         } else if (rating < 7 && rating >= 3) {
+             tipAmount = billAmount * 0.1;
+         } else{
+             tipAmount = billAmount * 0.3;
+         } 
+         }
+         
+         getTheBill();
+         console.log('Total bill:' + billAmount + 'tip:' + tipAmount);
+     
+
+
 
  </script>  
 </body>
